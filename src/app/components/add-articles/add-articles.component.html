@@ -1,1 +1,55 @@
-<p>add-articles works!</p>
+<div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Titulo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titulo"
+          required
+          [(ngModel)]="article.titulo"
+          name="titulo"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Corpo</label>
+        <input
+          class="form-control"
+          id="corpo"
+          required
+          [(ngModel)]="article.corpo"
+          name="corpo"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Autor</label>
+        <input
+          class="form-control"
+          id="autor"
+          required
+          [(ngModel)]="article.autor"
+          name="autor"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Categorias</label>
+        <input
+          class="form-control"
+          id="categoria"
+          required
+          [(ngModel)]="article.Categorias"
+          name="categoria"
+        />
+      </div>
+  
+      <button (click)="saveArticle()" class="btn btn-success">Submit</button>
+    </div>
+  
+    <div *ngIf="submitted">
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newArticle()">Add</button>
+    </div>
+  </div>

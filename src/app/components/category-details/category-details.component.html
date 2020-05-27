@@ -1,1 +1,29 @@
-<p>category-details works!</p>
+<div *ngIf="currentCategory" class="edit-form">
+    <h4>Categorias</h4>
+    <form>
+      <div class="form-group">
+        <label for="category">Categorias</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          [(ngModel)]="currentCategory.category"
+          name="category"
+        />
+      </div>
+    </form>
+  
+    <button class="badge badge-danger mr-2" (click)="deleteCategory()">
+      Delete
+    </button>
+  
+    <button type="submit" class="badge badge-success" (click)="updateCategory()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  
+  <div *ngIf="!currentCategory">
+    <br />
+    <p>Cannot access this Category...</p>
+  </div>

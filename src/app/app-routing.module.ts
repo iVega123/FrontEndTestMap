@@ -9,10 +9,12 @@ import { AddArticlesComponent } from './components/add-articles/add-articles.com
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'users', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path:'login', component: LoginComponent},
   {path:'users', component: UserListComponent},
   {path: 'user/:id', component: UserDetailsComponent},
   {path: 'adduser', component: AddUserComponent},

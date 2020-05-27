@@ -11,6 +11,7 @@ export class AddArticlesComponent implements OnInit {
     titulo: '',
     corpo: '',
     autor: '',
+    published: false,
     Categorias: [{}]
   };
   submitted = false;
@@ -45,7 +46,8 @@ export class AddArticlesComponent implements OnInit {
       titulo: '',
       corpo: '',
       autor: '',
-      Categorias: [{}]
+      Categorias: [{}],
+      published: false
     };
   }
 }

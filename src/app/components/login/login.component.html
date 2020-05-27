@@ -1,0 +1,21 @@
+<div class="content bg-login" style="position: fixed;">
+    <mat-card style="text-align: center;" class="login-card">
+      <form>
+        <mat-form-field class="container-login">
+          <span matPrefix> <i class="material-icons">account_circle</i>&nbsp;</span>
+          <input fxFlex="90%" matInput placeholder="Login"
+             type="text" name="Login" [(ngModel)]="user.Login">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="container-login">
+          <span matPrefix> <i class="material-icons">lock</i>&nbsp;</span>
+          <input fxFlex="90%" matInput placeholder="Senha"
+            type="password" name="Senha" [(ngModel)]="user.Senha">
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="center" class="button-login">
+          <button (click)="validateLogin();" fxFlex="100%" mat-button class="bt-login"> Login</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  <div class="version">Version 20200527</div>

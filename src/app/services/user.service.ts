@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:8080/api/users';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class UserService {
     return this.http.delete(baseUrl);
   }
 
-  findByTitle(Login) {
-    return this.http.get(`${baseUrl}?title=${Login}`);
+  findByLogin(Login) {
+    return this.http.get(`${baseUrl}?Login=${Login}`);
   }
 }

@@ -1,22 +1,17 @@
 <div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="title">Categorias</label>
-        <input
-          type="text"
-          class="form-control"
-          id="categoria"
-          required
-          [(ngModel)]="category.category"
-          name="categoria"
-        />
-      </div>
-
-      <button (click)="saveCategory()" class="btn btn-success">Submit</button>
-    </div>
-  
-    <div *ngIf="submitted">
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newCategory()">Add</button>
-    </div>
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <mat-form-field class="container-categoria">
+            <input fxFlex="90%" matInput placeholder="Categoria"
+               type="text" name="categoria" [(ngModel)]="category.category">
+          </mat-form-field>
+        </div>
+    <button mat-button color="primary" (click)="saveCategory()" class="btn btn-success">Enviar</button>
   </div>
+
+  <div *ngIf="submitted">
+    <h4>Subimissão Confirmada</h4>
+    <button mat-button color="primary" class="btn btn-success" (click)="newCategory()">Adicionar Novo?</button>
+  </div>
+  </div>
+  

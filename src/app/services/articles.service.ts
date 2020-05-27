@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:8080/api/articles';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class ArticlesService {
     return this.http.delete(baseUrl);
   }
 
-  findByTitle(titulo) {
-    return this.http.get(`${baseUrl}?title=${titulo}`);
+  findByTitulo(titulo) {
+    return this.http.get(`${baseUrl}?titulo=${titulo}`);
   }
 }

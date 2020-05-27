@@ -1,1 +1,69 @@
-<p>articles-details works!</p>
+<div *ngIf="currentArticles" class="edit-form">
+    <h4>Article</h4>
+    <form>
+      <div class="form-group">
+        <label for="titulo">Titulo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titulo"
+          [(ngModel)]="currentArticles.titulo"
+          name="titulo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="corpo">Corpo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="corpo"
+          [(ngModel)]="currentArticles.corpo"
+          name="corpo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="autor">Autor</label>
+        <input
+          type="text"
+          class="form-control"
+          id="autor"
+          [(ngModel)]="currentArticles.autor"
+          name="autor"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentArticles.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+  
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentArticles.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentArticles.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button>
+  
+    <button class="badge badge-danger mr-2" (click)="deleteArticle()">
+      Delete
+    </button>
+  
+    <button type="submit" class="badge badge-success" (click)="updateArticle()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  
+  <div *ngIf="!currentArticles">
+    <br />
+    <p>Cannot access this Article...</p>
+  </div>

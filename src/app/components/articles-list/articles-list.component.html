@@ -1,1 +1,47 @@
-<p>articles-list works!</p>
+
+<h4>Lista de Artigos</h4>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let article of articles; let i = index">
+           <a matLine>{{ article.titulo }}</a>
+           <button mat-icon-button (click)="setActiveArticle(article, i)">
+              <mat-icon>info</mat-icon>
+           </button>
+           <button mat-icon-button (click)="editArticle(article, i)">
+            <mat-icon>edit</mat-icon>
+         </button>
+        </mat-list-item>
+      </mat-nav-list>
+      <div class="col-md-6">
+        <button mat-button color="primary" class="m-3 btn btn-sm btn-danger" (click)="removeAllArticles()">
+          Remove All
+        </button>
+      </div>
+    <div class="col-md-6">
+      <div *ngIf="currentArticle">
+        <h4>Article</h4>
+        <div>
+          <label><strong>Titulo:</strong></label> {{ currentArticle.titulo }}
+        </div>
+        <div>
+          <label><strong>Corpo:</strong></label>
+          {{ currentArticle.corpo }}
+        </div>
+        <div>
+          <label><strong>Autor:</strong></label>
+          {{ currentArticle.autor }}
+        </div>
+        <div>
+            <label><strong>Category:</strong></label>
+            {{ currentArticle.category }}
+        </div>
+  
+        <a class="badge badge-warning" href="/articles/{{ currentArticle.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentArticle">
+        <br />
+        <p>Please click on a Article...</p>
+      </div>
+    </div>

@@ -1,51 +1,31 @@
 <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
-        <label for="title">Titulo</label>
-        <input
-          type="text"
-          class="form-control"
-          id="titulo"
-          required
-          [(ngModel)]="article.titulo"
-          name="titulo"
-        />
+        <mat-form-field class="container-titulo">
+          <input fxFlex="90%" matInput placeholder="Titulo"
+             type="text" name="Corpo" [(ngModel)]="article.titulo">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="container-corpo">
+          <input fxFlex="90%" matInput placeholder="Corpo"
+             type="text" name="Corpo" [(ngModel)]="article.corpo">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="container-autor">
+          <input fxFlex="90%" matInput placeholder="Autor"
+             type="text" name="Autor" [(ngModel)]="article.autor">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="container-autor">
+          <input fxFlex="90%" matInput placeholder="Categoria"
+             type="text" name="Categoria" [(ngModel)]="article.Categorias">
+        </mat-form-field>
       </div>
   
-      <div class="form-group">
-        <label for="description">Corpo</label>
-        <input
-          class="form-control"
-          id="corpo"
-          required
-          [(ngModel)]="article.corpo"
-          name="corpo"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="description">Autor</label>
-        <input
-          class="form-control"
-          id="autor"
-          required
-          [(ngModel)]="article.autor"
-          name="autor"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="description">Categorias</label>
-        <input
-          class="form-control"
-          id="categoria"
-          required
-          [(ngModel)]="article.Categorias"
-          name="categoria"
-        />
-      </div>
-  
-      <button (click)="saveArticle()" class="btn btn-success">Submit</button>
+      <button mat-button color="primary" (click)="saveArticle()" class="btn btn-success">Enviar</button>
     </div>
   
     <div *ngIf="submitted">

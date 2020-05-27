@@ -1,1 +1,43 @@
-<p>user-list works!</p>
+    <h4>Lista de Usuários</h4>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let user of users; let i = index">
+         <a matLine>{{ user.Login }}</a>
+         <button mat-icon-button (click)="setActiveUser(user, i)">
+            <mat-icon>info</mat-icon>
+         </button>
+         <button mat-icon-button (click)="editUser(user, i)">
+          <mat-icon>edit</mat-icon>
+       </button>
+      </mat-list-item>
+    </mat-nav-list>
+    <div class="list row">
+    <div class="col-md-6">
+      <button mat-button color="primary" class="m-3 btn btn-sm btn-danger" (click)="removeAllUsers()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentUser">
+        <h4>User</h4>
+        <div>
+          <label><strong>Login:</strong></label> {{ currentUser.Login }}
+        </div>
+        <div>
+          <label><strong>Senha:</strong></label>
+          {{ currentUser.Senha }}
+        </div>
+        <div>
+          <label><strong>Favoritos:</strong></label>
+          {{ currentUser.favoritos }}
+        </div>
+  
+        <a class="badge badge-warning" href="/users/{{ currentUser.id }}">
+          Edit
+        </a>
+      </div>
+      <div *ngIf="!currentUser">
+        <br />
+        <p>Please click on a User...</p>
+      </div>
+    </div>
+  </div>
